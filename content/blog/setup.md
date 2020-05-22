@@ -9,6 +9,7 @@ First, I needed a website to experiment on.
 Recently, I started with React, and I have heard a lot of good things about GatsbyJS.
 It also provides easy integration with Netlify CMS, so I am able to write new blog posts from the browser without having to add Markdown files to the repo manually.
 Let's go with Gatsby blog then!
+
 The setup is extremely simple. Just follow the [instructions](https://www.gatsbyjs.org/tutorial/blog-netlify-cms-tutorial/) on how to get stated with [gatsby-personal-starter-blog](https://www.gatsbyjs.org/tutorial/blog-netlify-cms-tutorial/).
 
 ## Coil

@@ -1,5 +1,6 @@
 backend:
-  name: test-repo
+  name: github
+  repo: petr7555/gftw-hackathon
 
 media_folder: static/assets
 public_folder: assets

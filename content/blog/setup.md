@@ -14,7 +14,7 @@ The setup is extremely simple. Just follow the [instructions](https://www.gatsby
 ## Coil
 To be able to test my work, I need to be able to send payments. Currently, only provider of this service is [Coil](https://coil.com/). So the choice is pretty obvious.
 Coil generously provides all hackathon participants with [3 months free trial](https://dev.to/devteam/free-coil-trial-for-all-gftwhackathon-participants-3n7m).
-After registration, all what is left is installation of the [Chrome plugin]
+After registration, all what is left is installation of the [Chrome extension]
 (https://chrome.google.com/webstore/detail/coil/locbifcbeldmnphbgkdigjmkbfkhbnca).
 
 ## Uphold

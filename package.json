@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-personal-starter-blog",
+  "name": "gwtf-hackathon",
   "private": true,
-  "description": "A personal blog starter for a blog powered by Netlify CMS, based on the default blog starter",
+  "description": "A site experimenting with various usages of web monetization.",
   "version": "1.0.0",
-  "author": "Thomas Wang <thomas@wang.sh>",
+  "author": "Petr Janik <peta.janik@email.cz>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/petr7555/gftw-hackathon/issues"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",

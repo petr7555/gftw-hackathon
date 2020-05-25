@@ -27,7 +27,7 @@ as part of the rendered component.
 
 When you visit the page with enabled monetization, you can see the status in the Chrome extension.
 
-![chrome coil extension showing paying status](./coil-extension.png)
+![chrome coil extension showing paying status](coil-extension.png)
 
 Another option is to add 
 ```js

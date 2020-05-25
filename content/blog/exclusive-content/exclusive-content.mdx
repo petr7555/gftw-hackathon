@@ -19,17 +19,19 @@ export const Exclusive = ({ children }) => {
   const [visible, setVisible] = useState(false)
   const [alwaysVisible, setAlwaysVisible] = useState(false)
 
-  if (document.monetization) {
-    document.monetization.addEventListener("monetizationstart", () => {
-      console.log("Enabled web monetization")
-      setVisible(true)
-    })
+  if (typeof document !== "undefined") {
+    if (document.monetization) {
+      document.monetization.addEventListener("monetizationstart", () => {
+        console.log("Enabled web monetization")
+        setVisible(true)
+      })
+    }
   }
 
   return (
     <div>
       <Switch checkedChildren="View as non-monetized user" unCheckedChildren="View as monetized user"
-              onChange={() => setAlwaysVisible(!alwaysVisible)} style={{marginBottom: "10px"}}/>
+              onChange={() => setAlwaysVisible(!alwaysVisible)} style={{ marginBottom: "10px" }}/>
       <div>
         {(visible || alwaysVisible) && <div>{children}</div>}
       </div>
@@ -39,15 +41,7 @@ export const Exclusive = ({ children }) => {
 ```
 ### Demo
 
-#### Delicios Pancakes - by Vladka Klimyak
-![pancakes](./pancakes.jpg)
-##### Ingrediens
-* 1.5 l kefir
-* 2 cups flour
-* 3 tablespoons sugar
-* 1 teaspoon baking soda
-##### Instructions
-Whisk everything together. Pour pancake batter on the pan (with oil) and cook under a lit until pancakes are lightly brown.
+![cat on suitcase](./suitcat.png)
 
 <Exclusive>
 
@@ -59,4 +53,5 @@ Whisk everything together. Pour pancake batter on the pan (with oil) and cook un
 ##### Instructions
 Let come all ingredients boil on a low heat.
 After you have froth on the surface, stir on a high heat for 10 minutes.
+Drizzle the pancakes with sweetened condensed milk.
 </Exclusive>

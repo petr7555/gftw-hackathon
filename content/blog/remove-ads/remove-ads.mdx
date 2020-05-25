@@ -1,0 +1,57 @@
+---
+path: remove-ads
+date: 2020-05-26T10:15:00.000Z
+title: Remove ads
+description: Thank people who support your site by removing ads.
+---
+import { Ad } from '../../../src/components/ad'
+import cat from './suitcat.png'
+
+You can make sure web monetized visitors have a smooth experience by removing ads.
+Here is a component that removes ads for web monetized viewers.
+
+```jsx
+import React, { useEffect, useState } from "react"
+import "antd/dist/antd.css"
+import { Switch } from "antd"
+
+export const Ad = ({ img, alt }) => {
+
+  const [showAds, setShowAds] = useState(false)
+  const [monetized, setMonetized] = useState(false)
+
+  useEffect(() => {
+      let hasPaid = false
+      if (typeof document !== "undefined") {
+        if (document.monetization) {
+          document.monetization.addEventListener("monetizationstart", () => {
+            hasPaid = true
+          })
+        }
+        if (!document.monetization) {
+          setShowAds(true)
+        } else {
+          setTimeout(() => {
+            if (!hasPaid) {
+              setShowAds(true)
+            }
+          }, 3000)
+        }
+      }
+    }, [],
+  )
+
+  return (
+    <div>
+      <Switch checkedChildren="View as non-monetized user" unCheckedChildren="View as monetized user"
+              onChange={() => setMonetized(!monetized)} style={{ marginBottom: "10px" }}/>
+      <div>
+        {(showAds && !monetized) && <img src={img} alt={alt}/>}
+      </div>
+    </div>
+  )
+}
+```
+
+### Demo
+<Ad img={cat} alt={"cat in suitcase"}/>

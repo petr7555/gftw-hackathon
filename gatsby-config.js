@@ -8,6 +8,7 @@ module.exports = {
     social: {
       twitter: `petajanik`,
     },
+    wallet: `$ilp.uphold.com/MiZbYf7LzrYz`
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,

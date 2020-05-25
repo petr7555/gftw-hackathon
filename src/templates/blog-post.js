@@ -6,7 +6,6 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import { Helmet } from "react-helmet"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -16,9 +15,6 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div>
-        <Helmet>
-          <meta name="monetization" content="$ilp.uphold.com/MiZbYf7LzrYz"/>
-        </Helmet>
         <Layout location={this.props.location} title={siteTitle}>
           <SEO
             title={post.frontmatter.title}

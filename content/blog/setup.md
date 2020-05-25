@@ -2,7 +2,7 @@
 path: setup
 date: 2020-05-22T19:20:24.988Z
 title: Setup
-description: Getting everything ready
+description: Getting everything ready.
 ---
 ## Gatsby
 First, I needed a website to experiment on.

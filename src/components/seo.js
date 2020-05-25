@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             title
             description
             author
+            wallet
           }
         }
       }
@@ -66,6 +67,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `monetization`,
+          content: site.siteMetadata.wallet,
         },
       ]
         .concat(

@@ -27,4 +27,37 @@ as part of the rendered component.
 
 When you visit the page with enabled monetization, you can see the status in the Chrome extension.
 
-![chrome coil extension showing paying status](assets/coil-extension.png)
+![chrome coil extension showing paying status](./coil-extension.png)
+
+Another option is to add 
+```js
+wallet: `$wallet.example.com/yourcode`
+```
+inside `gatsby-config.js`.
+
+After that, find the `SEO` component. It renders `<Helmet>` component which has a property `meta`.
+Add the following to the `meta` array.
+```jsx
+{
+  name: `monetization`,
+  content: site.siteMetadata.wallet,
+}
+```
+Don't forget to adjust the query by adding **wallet**
+```jsx
+const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+            wallet
+          }
+        }
+      }
+    `
+  )
+```
+Now all your blog posts have web monetization enabled.

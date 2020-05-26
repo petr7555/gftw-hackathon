@@ -23,6 +23,7 @@ class IndexPage extends React.Component {
           </span>
         </h1>
         <p>Welcome to my website. This was created as a part of <a href={"https://dev.to/devteam/announcing-the-grant-for-the-web-hackathon-on-dev-3kd1"}>Grant For The Web Hackathon on DEV</a>.</p>
+        <p>You can read my <a href={"https://dev.to/petr7555/placeholder-title-jb0"}>blog post on DEV</a>.</p>
         <p>Go to the blog section to find out more!</p>
         <Link to="/blog/">
           <Button marginTop="35px">Go to Blog</Button>

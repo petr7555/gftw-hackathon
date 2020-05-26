@@ -1,14 +1,11 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
+    <img alt="Gatsby" src="./static/gftw-logo.png" width="60" />
 </p>
 <h1 align="center">
-  Gatsby's personal blog starter
+  Grant for the web on DEV hackathon project
 </h1>
 
-<img alt="screesnhot" src="./screenshot.png">
+<img alt="screenshot" src="./screenshot.png">
 
 This starter is a fork of Gatsby Starter Blog, the most popular starter by far – with second place being Gatsby Starter Netlify CMS. So I decided to combine the 2!
 

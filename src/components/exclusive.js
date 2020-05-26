@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "antd/dist/antd.css"
 import { Switch } from "antd"
 
@@ -7,14 +7,15 @@ export const Exclusive = ({ children }) => {
   const [visible, setVisible] = useState(false)
   const [alwaysVisible, setAlwaysVisible] = useState(false)
 
-  if (typeof document !== "undefined") {
-    if (document.monetization) {
-      document.monetization.addEventListener("monetizationstart", () => {
-        console.log("Enabled web monetization")
-        setVisible(true)
-      })
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      if (document.monetization) {
+        document.monetization.addEventListener("monetizationstart", () => {
+          setVisible(true)
+        })
+      }
     }
-  }
+  }, [])
 
   return (
     <div>

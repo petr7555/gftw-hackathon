@@ -1,0 +1,52 @@
+---
+path: start-stop-monetization
+date: 2020-05-26T9:15:00.000Z
+title: Start/stop monetization
+description: Turn Web Monetization on and off dynamically
+---
+import { MonetizationSwitcher } from '../../../src/components/monetizationSwitcher'
+
+You can turn monetization on and off dynamically in response to a visitor clicking a button
+by adding or removing the `meta` tag.
+
+```jsx
+import React, { useEffect, useState } from "react"
+import { Helmet } from "react-helmet/es/Helmet"
+import "antd/dist/antd.css"
+import { Button } from "antd"
+
+export const MonetizationSwitcher = ({ wallet }) => {
+  const [state, setState] = useState("")
+  const [monetized, setMonetized] = useState(true)
+
+  const showMonetizationState = () => {
+    setState(document.monetization.state)
+  }
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      if (document.monetization) {
+        document.monetization.addEventListener("monetizationstop", showMonetizationState)
+        document.monetization.addEventListener("monetizationpending", showMonetizationState)
+        document.monetization.addEventListener("monetizationstart", showMonetizationState)
+      } else {
+        setState("Not enabled in browser")
+      }
+    }
+  }, [])
+
+  return (
+    <div>
+      <Helmet>
+        {monetized && <meta name="monetization" content={wallet}/>}
+      </Helmet>
+      <p> Current monetization state: {state}</p>
+      <Button type="primary" onClick={() => setMonetized(false)} disabled={!monetized} style={{marginRight: "5px"}}>Stop monetization</Button>
+      <Button type="primary" onClick={() => setMonetized(true)} disabled={monetized}>Start monetization</Button>
+    </div>
+  )
+}
+```
+### Demo
+<MonetizationSwitcher wallet={"$ilp.uphold.com/MiZbYf7LzrYz"}/>
+

@@ -10,7 +10,7 @@ To enable web monetization on our website, we have to add a special `<meta>` tag
 <html>
   <head>
     <title>My Monetized Website</title>
-    <meta name="monetization" content="$wallet.example.com/yourcode">
+    <meta name="monetization" content="$wallet.example.com/yourcode"/>
   </head>
 </html>
 ```
@@ -19,7 +19,7 @@ Adding new tag to `<head>` in Gatsby is not as straightforward as with normal ht
 
 ```jsx
 <Helmet>
-    <meta name="monetization" content="$wallet.example.com/yourcode">
+    <meta name="monetization" content="$wallet.example.com/yourcode"/>
 </Helmet>
 ```
 

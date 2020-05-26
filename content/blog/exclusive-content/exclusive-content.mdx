@@ -10,7 +10,7 @@ You can reward people who support your site by giving web monetized viewers excl
 Here is a component that shows exclusive content only to monetized viewers.
 
 ```jsx
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "antd/dist/antd.css"
 import { Switch } from "antd"
 
@@ -19,14 +19,15 @@ export const Exclusive = ({ children }) => {
   const [visible, setVisible] = useState(false)
   const [alwaysVisible, setAlwaysVisible] = useState(false)
 
-  if (typeof document !== "undefined") {
-    if (document.monetization) {
-      document.monetization.addEventListener("monetizationstart", () => {
-        console.log("Enabled web monetization")
-        setVisible(true)
-      })
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      if (document.monetization) {
+        document.monetization.addEventListener("monetizationstart", () => {
+          setVisible(true)
+        })
+      }
     }
-  }
+  }, [])
 
   return (
     <div>
@@ -40,8 +41,15 @@ export const Exclusive = ({ children }) => {
 }
 ```
 ### Demo
-
-![cat on suitcase](./suitcat.png)
+#### Delicios Pancakes - by Vladka Klimyak
+![pancakes](./pancakes.jpg)
+##### Ingrediens
+* 1.5 l kefir
+* 2 cups flour
+* 3 tablespoons sugar
+* 1 teaspoon baking soda
+##### Instructions
+Whisk everything together. Pour pancake batter on the pan (with oil) and cook under a lit until pancakes are lightly brown.
 
 <Exclusive>
 

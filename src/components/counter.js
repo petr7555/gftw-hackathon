@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react"
 import gif from "../../static/money-rain.gif"
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css"
 import "ant-design-pro/dist/ant-design-pro.css"
-import { ChartCard, MiniArea } from "ant-design-pro/lib/Charts"
 import NumberInfo from "ant-design-pro/lib/NumberInfo"
-import Trend from 'ant-design-pro/lib/Trend';
 import moment from "moment"
 
+// ant-design-pro/lib/Charts references 'document' which is not allowed when building Gatsby
+let ChartCard;
+let MiniArea;
+if (typeof document !== "undefined") {
+  ChartCard = require("ant-design-pro/lib/Charts").ChartCard
+  MiniArea = require("ant-design-pro/lib/Charts").MiniArea
+}
+
 export const Counter = () => {
-  const [formatted, setFormatted] = useState()
-  const [currency, setCurrency] = useState()
+  const [formatted, setFormatted] = useState('')
+  const [currency, setCurrency] = useState('')
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -35,9 +41,6 @@ export const Counter = () => {
   return (
     <div>
       {formatted && <img src={gif} alt="rain of money"/>}
-      <p>
-        Thanks to you, I've made {value}.
-      </p>
       <ChartCard title="Thanks to you, I've made" total={value} contentHeight={160}>
         <NumberInfo
           subTitle={<span>change</span>}

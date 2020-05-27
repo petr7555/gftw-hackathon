@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import gif from "../../static/money-rain.gif"
 import "antd/dist/antd.css"
 import "ant-design-pro/dist/ant-design-pro.css"
-import NumberInfo from "ant-design-pro/lib/NumberInfo"
 import moment from "moment"
 
 // ant-design-pro/lib/Charts references 'document' which is not allowed when building Gatsby
@@ -41,13 +40,7 @@ export const Counter = () => {
   return (
     <div>
       {formatted && <img src={gif} alt="rain of money"/>}
-      <ChartCard title="Thanks to you, I've made" total={value} contentHeight={160}>
-        <NumberInfo
-          subTitle={<span>change</span>}
-          total={data.length > 0 && data[data.length - 1].y}
-          status={data.length > 1 && (data[data.length - 1].y < data[data.length - 2].y) ? "down" : "up"}
-          subTotal={data.length > 1 && data[data.length - 1].y - data[data.length - 2].y}
-        />
+      <ChartCard title="Thanks to you, I've made" total={value} contentHeight={120}>
         <MiniArea line height={100} data={data}/>
       </ChartCard>
     </div>

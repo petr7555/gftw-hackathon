@@ -17,18 +17,16 @@ import gif from "../../static/money-rain.gif"
 import "antd/dist/antd.css"
 import "ant-design-pro/dist/ant-design-pro.css"
 import moment from "moment"
+import loadable from "@loadable/component"
 
 // ant-design-pro/lib/Charts references 'document' which is not allowed when building Gatsby
-let ChartCard;
-let MiniArea;
-if (typeof document !== "undefined") {
-  ChartCard = require("ant-design-pro/lib/Charts").ChartCard
-  MiniArea = require("ant-design-pro/lib/Charts").MiniArea
-}
+// therefore we make use of loadable library
+const ChartCard = loadable(() => import('ant-design-pro/lib/Charts/ChartCard'))
+const MiniArea = loadable(() => import('ant-design-pro/lib/Charts/MiniArea'))
 
 export const Counter = () => {
-  const [formatted, setFormatted] = useState('')
-  const [currency, setCurrency] = useState('')
+  const [formatted, setFormatted] = useState("")
+  const [currency, setCurrency] = useState("")
   const [data, setData] = useState([])
 
   useEffect(() => {

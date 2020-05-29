@@ -8,6 +8,7 @@
     "url": "https://github.com/petr7555/gftw-hackathon/issues"
   },
   "dependencies": {
+    "@loadable/component": "^5.12.0",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "ant-design-pro": "^2.3.2",
